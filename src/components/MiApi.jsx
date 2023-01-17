@@ -7,8 +7,8 @@ import Modal from 'react-bootstrap/Modal';
 
 
 
-const MiApi = () => {
-    // 3. info guardará los valores traídos desde la API 
+const MiApi = (Props) => {
+    //info guardará los valores traídos desde la API 
     
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -66,7 +66,17 @@ const MiApi = () => {
         <div>
             <Row xs={1} md={3} lg={4} className="g-4 mx-5 my-5">
 
-            {movies.map((movie)=>(
+            {movies.filter((pel)=> {
+                if(pel.title.toLowerCase().includes(Props.busqueda.toLowerCase())|| 
+                    pel.director.toLowerCase().includes(Props.busqueda.toLowerCase())){
+                    
+                    return pel
+                } 
+            
+                // eslint-disable-next-line array-callback-return
+                return;
+            
+            }).map((movie)=>(
                 <Col key={movie.id}>
                     <Card border='border border-0'>
                         <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}/>
