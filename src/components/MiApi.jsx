@@ -67,14 +67,15 @@ const MiApi = (Props) => {
             <Row xs={1} md={3} lg={4} className="g-4 mx-5 my-5">
 
             {movies.filter((pel)=> {
-                if(pel.title.toLowerCase().includes(Props.busqueda.toLowerCase())|| 
-                    pel.director.toLowerCase().includes(Props.busqueda.toLowerCase())){
-                    
-                    return pel
-                } 
-            
-                // eslint-disable-next-line array-callback-return
-                return;
+                if (Props.busqueda === '') {
+                    return true;
+                } else if(pel.title.toLowerCase().includes(Props.busqueda.toLowerCase())|| 
+                            pel.director.toLowerCase().includes(Props.busqueda.toLowerCase())){
+                
+                            return pel
+                } else {
+                    return pel.genres.find(genre => genre.toLowerCase().includes(Props.busqueda.toLowerCase()));
+                }
             
             }).map((movie)=>(
                 <Col key={movie.id}>
