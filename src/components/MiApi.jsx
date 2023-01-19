@@ -14,7 +14,7 @@ const MiApi = (Props) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [movies, setMovies] = useState([]);
 
-    // 2. Llamamos a la función que consume la API al momento de montar el componente 
+    // Llamamos a la función que consume la API al momento de montar el componente 
     useEffect(() => { 
         const getDataFilms = async () => {
             const movieUrl = 'https://api.themoviedb.org/3/movie/now_playing?api_key=23d83d7d7cd4d153c1035ec520541b49&language=es-ES&page=1';
@@ -68,7 +68,7 @@ const MiApi = (Props) => {
 
             {movies.filter((pel)=> {
                 if (Props.busqueda === '') {
-                    return true;
+                    return pel;
                 } else if(pel.title.toLowerCase().includes(Props.busqueda.toLowerCase())|| 
                             pel.director.toLowerCase().includes(Props.busqueda.toLowerCase())){
                 
@@ -76,8 +76,8 @@ const MiApi = (Props) => {
                 } else {
                     return pel.genres.find(genre => genre.toLowerCase().includes(Props.busqueda.toLowerCase()));
                 }
-            
-            }).map((movie)=>(
+            // películas ordenadas por puntaje con .sort
+            }).sort((a, b) => b.vote_average - a.vote_average).map((movie) => (
                 <Col key={movie.id}>
                     <Card border='border border-0'>
                         <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}/>
