@@ -1,7 +1,6 @@
 body {
   margin: 0;
   background-color: #22254b;
-
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -34,6 +33,14 @@ code {
   margin: 2px;
   padding: 7px 27px;
   text-transform: uppercase;
+}
+
+.img {
+  transition: transform 0.1s;
+}
+
+.img:hover{
+  transform: scale(1.02);
 }
 
 .btn-search:hover {
@@ -77,3 +84,21 @@ code {
   max-width: 6rem;
   height: 3rem;
 }
+
+.movies {
+  margin: 0 7rem;
+}
+
+@media (max-width: 942px) {
+  #modal-img {
+    opacity: 0.11;
+  }
+  .button-modal{
+    position: relative;
+  }
+  .movies {
+    margin: 0 2.7rem;
+  }
+}
+
+
