@@ -8,7 +8,7 @@ const Search = ({setBusqueda}) => {
     return (
         <Navbar expand="lg" className='border-rounded navbar-dark'>
         <Container fluid className='ms-5'>
-            <Navbar.Brand className="fs-2 mx-auto" href="#">Solo Estrenos</Navbar.Brand>
+            <Navbar.Brand className="title-page fs-2 mx-auto" href="App">Movies App</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
             <Form className="d-flex col-10">
