@@ -89,6 +89,12 @@ code {
   margin: 0 7rem;
 }
 
+.spinner{
+  display: flex;
+  justify-content: center;
+  margin: auto auto;
+}
+
 @media (max-width: 942px) {
   #modal-img {
     opacity: 0.11;
